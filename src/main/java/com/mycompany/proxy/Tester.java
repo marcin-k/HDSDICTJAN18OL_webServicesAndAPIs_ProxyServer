@@ -17,7 +17,7 @@ public class Tester {
 					
   @GET
   @Path("/{param}")
-  public Response sayHelloWorld(@PathParam("param") String city) {
+  public Response reply(@PathParam("param") String city) {
     String url = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&mode=json&appid=372d50605bd8dc374d5f835f3c731ad8";
     System.out.println("-----------------------\n"+url+"-----------------------\n");
     WeatherConnection myWeather = new WeatherConnection();
