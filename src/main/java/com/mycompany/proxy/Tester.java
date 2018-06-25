@@ -14,11 +14,14 @@ import javax.ws.rs.core.Response;
 					
 @Path("/proxy") 
 public class Tester {
-					
+  private static final String API_KEY = "372d50605bd8dc374d5f835f3c731ad8";
   @GET
   @Path("/{param}")
   public Response reply(@PathParam("param") String city) {
-    String url = "http://api.openweathermap.org/data/2.5/forecast?q="+city+"&mode=json&appid=372d50605bd8dc374d5f835f3c731ad8";
+    //url include name of the city and "units=metric" so that the response 
+    //include temperature in Celcius scale
+    String url = "http://api.openweathermap.org/data/2.5/forecast?q="+city+
+            "&mode=json&appid="+API_KEY+"&units=metric";
     System.out.println("-----------------------\n"+url+"-----------------------\n");
     WeatherConnection myWeather = new WeatherConnection();
     String output = myWeather.getResponse(url);
